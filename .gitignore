@@ -1,0 +1,33 @@
+# Mac
+.DS_Store
+
+# node
+**/node_modules/**/*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+#
+.vscode/settings.js
+
+# other
+lerna-*.log
+.npmrc
+
+# testing output
+coverage
+.nyc_output
+
+# next.js
+**/.next/
+**/out/
+
+# Any local development cert files
+**/*qloo-inc.crt
+**/*qloo-inc.key
+
+# Any local database files
+projects/db_data
+
+# Any dump files
+*.pgdump

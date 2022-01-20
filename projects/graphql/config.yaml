@@ -1,0 +1,9 @@
+# See https://hasura.io/docs/latest/graphql/core/deployment/graphql-engine-flags/index.html
+# for config options
+
+version: 3
+endpoint: http://localhost:8087
+metadata_directory: metadata
+actions:
+  kind: synchronous
+  handler_webhook_baseurl: http://localhost:3000

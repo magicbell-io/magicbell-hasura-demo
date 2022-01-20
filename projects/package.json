@@ -1,0 +1,22 @@
+{
+  "name": "magicbell-hasura-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hasura:export": "set -o allexport; source .env; source .env.local; set +o allexport; hasura metadata export --project ./graphql",
+    "hasura:apply": "set -o allexport; source .env; source .env.local; set +o allexport; hasura metadata apply --project ./graphql",
+    "hasura:reload": "set -o allexport; source .env; source .env.local; set +o allexport; hasura metadata reload --project ./graphql",
+    "docker:up": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml up",
+    "docker:down": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml down",
+    "docker:build": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml build",
+    "dev:create": "set -o allexport; source .env; source .env.local; set +o allexport; yarn hasura:apply; yarn hasura:reload",
+    "dev:destroy-everything": "yarn docker:down ; docker rmi $(docker images --filter \"reference=magicbell*\" -q) -f; docker volume rm projects_magicbell_db_data"
+  },
+  "keywords": [],
+  "author": "Eric Hosick <erichosick@gmail.com> (http://www.erichosick.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "hasura-cli": "^2.0.3"
+  }
+}
